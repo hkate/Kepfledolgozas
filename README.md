@@ -12,9 +12,13 @@ target_link_libraries(MyProject ${OpenCV_LIBS})
 ```
 
 mkdir build
+
 cd build
+
 cmake ..
+
 make
+
 ./MyProject
 
 > ha kell valami kép vagy videó hozzá akkor azt is a build mappába tedd, elérésként a teljes path-t add majd meg
