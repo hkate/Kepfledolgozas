@@ -1,6 +1,6 @@
 # How to run your files CORRECTLY
 
-## touch CMakeLists.txt //az adott óra mappájába (itt a tutorial)
+touch CMakeLists.txt //az adott óra mappájába (itt a tutorial)
 
 ## Tartalma legyen:
 ```c
