@@ -9,7 +9,7 @@ fekete fehÈr kÈpre tetszıleges sz˚rı alkalmaz·sa, majd hisztogram kiegyenl
 */
 void Exercise1()
 {
-	cv::Mat I = cv::imread("/Users/halaszkata/git/2023/2.felev/Kepfledolgozas/tutorial/build/shape.png", 0);
+	cv::Mat I = cv::imread("shape.png", 0);
 	cv::Mat filtered,equalized;
 
 	cv::medianBlur(I, filtered, 5);
@@ -24,7 +24,7 @@ kÈp ÈlesÌtÈse sz˚rı segÌtsÈgÈvel
 */
 void Exercise2()
 {
-	cv::Mat I = cv::imread("/Users/halaszkata/git/2023/2.felev/Kepfledolgozas/tutorial/build/shape.png", 0);
+	cv::Mat I = cv::imread("shape.png", 0);
 	cv::Mat filtered, sharp;
 
 	cv::medianBlur(I, filtered, 5);
@@ -39,16 +39,16 @@ szÌnes kÈp hisztogram kiegyenlÌtÈse
 */
 void Exercise3()
 {
-	cv::Mat I = cv::imread("/Users/halaszkata/git/2023/2.felev/Kepfledolgozas/tutorial/build/shape.png", 1);
+	cv::Mat I = cv::imread("shape.png", 1);
 	cv::Mat hsv,splitted[3], equalized[3],merged,result;
 
 	cv::cvtColor(I, hsv, cv::COLOR_BGR2HSV);
-
+	
 	cv::split(hsv, splitted);
 	cv::equalizeHist(splitted[2], equalized[2]);
 	splitted[1].copyTo(equalized[1]);
 	splitted[0].copyTo(equalized[0]);
-
+	
 	cv::merge(equalized, 3, merged);
 	cv::cvtColor(merged, result, cv::COLOR_HSV2BGR);
 	cv::imshow("result", result);
