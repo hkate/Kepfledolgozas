@@ -43,12 +43,12 @@ void Exercise3()
 	cv::Mat hsv,splitted[3], equalized[3],merged,result;
 
 	cv::cvtColor(I, hsv, cv::COLOR_BGR2HSV);
-	
+
 	cv::split(hsv, splitted);
 	cv::equalizeHist(splitted[2], equalized[2]);
 	splitted[1].copyTo(equalized[1]);
 	splitted[0].copyTo(equalized[0]);
-	
+
 	cv::merge(equalized, 3, merged);
 	cv::cvtColor(merged, result, cv::COLOR_HSV2BGR);
 	cv::imshow("result", result);
