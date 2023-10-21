@@ -92,6 +92,28 @@ void Feladat1_negyedikpont() {
     cv::Mat image = cv::imread("/Users/halaszkata/git/2023/2.felev/Kepfledolgozas/orai_munka/Robi_ZH/build/bunny.jpeg", 0); //0 fekete fehér, 1 színes
 	cv::imshow("Alapkep", image);
 	cv::waitKey();
+
+    //előbb deklarálj külön külön színeket
+    unsigned char piros = 0, kek = 0, zold = 0;
+	std::cout << "Kek: ";
+	std::cin >> kek;
+	std::cout << "Zold: ";
+	std::cin >> zold;
+	std::cout << "Piros: ";
+	std::cin >> piros;
+
+	cv::Mat rgb;
+
+	for (int i = 0; i < img.rows; ++i) {
+		for (int j = 0; j < img.cols; ++j) {
+			cv::Vec3b pixelGroup = rgb.at<cv::Vec3b>(i, j);
+			pixelGroup[0] = pixelGroup[0] + (kek / 100);
+			pixelGroup[1] = pixelGroup[1] + (zold / 100);
+			pixelGroup[2] = pixelGroup[2] + (kek / 100);
+
+			rgb.at<cv::Vec3b>(i, j) = pixelGroup;
+		}
+	}
 }
 
 void Feladat1_ötödikpont() {
@@ -118,6 +140,7 @@ int main() {
     //Feladat1_masodikpont();
     //Feladat1_harmadikpont();
     Feladat1_negyedikpont();
+    //Feladat1_ötödikpont();
 
 	return 0;
 }
